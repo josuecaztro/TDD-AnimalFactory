@@ -9,7 +9,7 @@ import java.util.Date;
  * @author leon on 4/19/18.
  */
 public abstract class Mammal implements Animal {
-    private final Integer id;
+    private final Integer id; //can't change this, ONLY in a constructor
     private ArrayList<Food> eatenMeals;
     private String name;
     private Date birthDate;
@@ -19,6 +19,11 @@ public abstract class Mammal implements Animal {
         this.birthDate = birthDate;
         this.eatenMeals = new ArrayList<>();
         this.id = id;
+    }
+
+    public Mammal(){
+        this.id = 0;
+        this.eatenMeals = new ArrayList<>();
     }
 
     public String getName() {
@@ -44,6 +49,7 @@ public abstract class Mammal implements Animal {
 
     public void eat(Food food) {
         eatenMeals.add(food);
+        System.out.println("I just ate food!");
     }
 
     @Override
