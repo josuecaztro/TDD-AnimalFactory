@@ -1,5 +1,6 @@
 package rocks.zipcodewilmington;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Animal;
@@ -18,6 +19,14 @@ public class AnimalFactoryTest {
     //TODO - Create Test for `Animal createDog(String name, Date birthDate)`
     //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
 
+
+    @After
+    public void setUp(){
+        DogHouse dogHouse = new DogHouse();
+        dogHouse.clear();
+    }
+
+
     @Test
     public void createDogTest(){
         AnimalFactory animalFactory = new AnimalFactory();
@@ -35,10 +44,10 @@ public class AnimalFactoryTest {
     public void createCatTest(){
         AnimalFactory animalFactory = new AnimalFactory();
         CatHouse catHouse = new CatHouse();
+        Date expected2 = new Date();
         Cat newCat = animalFactory.createCat("Tofu",new Date());
         String actual1 = newCat.getName();
         String expected = "Tofu";
-        Date expected2 = new Date();
         Date actual2 = newCat.getBirthDate();
         Assert.assertEquals(expected, actual1);
         Assert.assertEquals(expected2, actual2);

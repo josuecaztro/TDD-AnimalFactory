@@ -21,6 +21,7 @@ public class AnimalFactory {
 
     public static Cat createCat(String name, Date birthDate) {
         Integer newId = CatHouse.getNumberOfCats();
+        System.out.println(newId);
         return new Cat(name, birthDate, newId);
     }
 }
